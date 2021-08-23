@@ -21,17 +21,17 @@ export class FetchApiDataService {
   //making the api call for the user registration endpoint
   UserRegister(userDetails : any): Observable<any>{
     console.log(userDetails);  
-    return this.http.post(apiURL + 'register', userDetails).pipe(
-      catchError(this.handleError)
-    );
+    return this.http
+      .post(apiURL + 'register', userDetails)
+      .pipe(catchError(this.handleError));
   }
 
   //user login endpoint
   UserLogin(userDetails: any): Observable<any>{
     console.log(userDetails);
-    return this.http.post(apiURL + 'login', userDetails).pipe(
-      catchError(this.handleError)
-    );
+    return this.http
+      .post(apiURL + 'login', userDetails)
+      .pipe(catchError(this.handleError));
   }
 
   //get all movies
@@ -176,7 +176,7 @@ export class FetchApiDataService {
   }
 
   //non-type response extraction
-  private extractResponseData(res: Response): any{
+  private extractResponseData(res: Response | Object): any{
     const body = res;
     return body || {};
   }
