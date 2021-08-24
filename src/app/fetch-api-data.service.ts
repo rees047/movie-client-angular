@@ -6,7 +6,8 @@ import { Observable, throwError } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 //declaring the api url that will provide data or the client app
-const apiURL = 'https://cinefiles-api.herokuapp.com/';
+//const apiURL = 'https://cinefiles-api.herokuapp.com/';
+const apiURL = 'http://localhost:8080/';
 
 @Injectable({
   providedIn: 'root'
@@ -165,13 +166,15 @@ export class FetchApiDataService {
     if(error.error instanceof ErrorEvent){
       console.log('Some error occurred: ' + error.error.message);
     }else{
-      console.error(
+      console.error(`Error Status code ${error.status}`);
+      /*console.error(        
         `Error Status code ${error.status}, ` + 
-        `Error Body is: ${error.error}`
-      );
+        `Error Body is: ${error.error.serverResponse}`
+      );*/
     }
     return throwError(
-      'Something bad happened; please try again later.'
+      //'Something bad happened; please try again later.'
+      error.error
     );
   }
 

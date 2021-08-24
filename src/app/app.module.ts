@@ -15,11 +15,13 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { FormsModule } from '@angular/forms';
 import { RegisterFormComponent } from './register-form/register-form.component';
+import { LoginFormComponent } from './login-form/login-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    RegisterFormComponent
+    RegisterFormComponent,
+    LoginFormComponent
   ],
   imports: [
     BrowserModule,
