@@ -1,0 +1,30 @@
+.logout-container{
+    background-color: white;
+    height: auto;
+}
+
+.flex-container{
+    display: flex;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    background: rgb(238,174,202);
+    background: linear-gradient(90deg, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+    overflow: auto;
+}
+
+.flex-item {
+    flex: 1 1 auto;
+    margin: auto 10px;
+}
+
+.poster-image{
+    height: 500px;
+    object-fit: fill;
+}
+
+@media only screen and (max-width: 640px) {
+    .poster-image{
+        height: 270px;
+    }
+}

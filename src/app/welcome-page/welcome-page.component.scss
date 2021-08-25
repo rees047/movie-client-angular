@@ -1,0 +1,19 @@
+.flex-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.box {
+    width: auto;
+    /*border: 1px solid blue;*/
+    text-align: center;
+}
+
+.flex-item {
+    /*background-color: tomato;*/
+    padding: 5px;    
+    margin: 10px;
+    text-align: center;
+}
