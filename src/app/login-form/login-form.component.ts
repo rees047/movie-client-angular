@@ -5,6 +5,8 @@ import { MatDialogRef } from '@angular/material/dialog';
 
 //this import brings in the API calls we created i 6.2
 import { FetchApiDataService } from '../fetch-api-data.service';
+//this import bring in the share-data service
+//import { ShareDataService } from '../share-data.service'; //i created this service! yay!
 
 //this import is used to display notifications back to the user
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -25,7 +27,8 @@ export class LoginFormComponent implements OnInit {
     public fetchApiData: FetchApiDataService,
     public dialogRef: MatDialogRef<LoginFormComponent>,
     public snackBar: MatSnackBar,
-    public router: Router
+    public router: Router,
+    //private shareData: ShareDataService
   ) { }
 
   ngOnInit(): void {
@@ -48,6 +51,7 @@ export class LoginFormComponent implements OnInit {
       /*this.snackBar.open(`Welcome ${username}`, 'OK', {
         duration: 2000
       });*/
+      //this.shareData.setData(success);
       this.router.navigate(['movies']); //navigate to movie view
     }, (error) => { //error
       //console.log(error);

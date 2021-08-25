@@ -16,6 +16,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { FormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatListModule } from '@angular/material/list';
 
 import { RegisterFormComponent } from './register-form/register-form.component';
 import { LoginFormComponent } from './login-form/login-form.component';
@@ -27,6 +28,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { GenreViewComponent } from './genre-view/genre-view.component';
 import { DirectorViewComponent } from './director-view/director-view.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
+import { MovieSummaryComponent } from './movie-summary/movie-summary.component';
+
 const appRoutes: Routes = [
   { path: 'welcome', component: WelcomePageComponent },
   { path: 'movies', component: MovieCardComponent },
@@ -42,7 +45,8 @@ const appRoutes: Routes = [
     WelcomePageComponent,
     GenreViewComponent,
     DirectorViewComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    MovieSummaryComponent
   ],
   imports: [
     BrowserModule,
@@ -58,6 +62,7 @@ const appRoutes: Routes = [
     FormsModule,
     MatIconModule,
     MatToolbarModule,
+    MatListModule,
     RouterModule.forRoot(appRoutes)
   ],
   providers: [

@@ -1,16 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ɵɵsetComponentScope } from '@angular/core';
 import { Title } from '@angular/platform-browser'; //this import is used for setting html title
-import { FetchApiDataService } from '../fetch-api-data.service';
 import { Router } from '@angular/router'; //this import is used for routing
+import { Observable } from 'rxjs';
 
 //this import is used to display notifications back to the user
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatDialog } from '@angular/material/dialog';
 
+import { FetchApiDataService } from '../fetch-api-data.service';
+//import { ShareDataService } from '../share-data.service';
+
 import { GenreViewComponent } from '../genre-view/genre-view.component';
 import { DirectorViewComponent } from '../director-view/director-view.component';
-
+import { MovieSummaryComponent } from '../movie-summary/movie-summary.component';
+import { UserProfileComponent } from '../user-profile/user-profile.component';
 
 @Component({
   selector: 'app-movie-card',
@@ -26,12 +30,14 @@ export class MovieCardComponent implements OnInit {
     public dialog: MatDialog,
     public snackBar: MatSnackBar,
     public toolbar: MatToolbarModule,
-    public router: Router
+    public router: Router,
+    //private shareData: ShareDataService
   ) { }
 
   ngOnInit(): void {
     this.getMovies();
     this.setTitle();
+    //console.log(this.shareData.getData());
   }
 
   //set html title 
@@ -43,6 +49,7 @@ export class MovieCardComponent implements OnInit {
     localStorage.removeItem('token');
     localStorage.removeItem('user');
     localStorage.removeItem('uid');
+    //this.shareData.clearData();
     this.router.navigate(['welcome']);
   }
 
@@ -57,19 +64,27 @@ export class MovieCardComponent implements OnInit {
       });
      
       //console.log(this.movies);
+      this.getUserName();
       return this.movies;
     },(error) => {
       //console.log(error);
+      this.router.navigate(['welcome']);
       this.snackBar.open('Please login to view movies', 'OK', {
-        duration: 2000
+        duration: 2500
       });
     }); 
+  }
+
+  getUserName(): Observable<any>{
+    const user:any = localStorage.getItem('user');
+    console.log(user);
+    return user;
   }
 
   openGenreDialog(myData:any): void{
     //console.log(myData);
     this.dialog.open(GenreViewComponent,{
-      width: '75%',
+      width: '50%',
       data: myData
     });    
   }
@@ -77,9 +92,16 @@ export class MovieCardComponent implements OnInit {
   openDirectorDialog(myData:any): void{
     //console.log(myData);
     this.dialog.open(DirectorViewComponent,{
-      width: '75%',
+      width: '50%',
       data: myData
     });    
   }
 
+  openMovieSummaryDialog(myData:any): void{
+    //console.log(myData);
+    this.dialog.open(MovieSummaryComponent,{
+      width: '50%',
+      data: myData
+    });    
+  }
 }

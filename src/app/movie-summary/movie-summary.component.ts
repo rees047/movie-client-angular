@@ -1,5 +1,5 @@
-import { Component, OnInit, Inject} from '@angular/core';
-import { Observable } from 'rxjs'
+import { Component, OnInit, Inject } from '@angular/core';
+import { Observable } from 'rxjs';
 
 //Mat_Dialog_Data is used to get the data from the dialog
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
@@ -8,24 +8,25 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/layout';
 
 @Component({
-  selector: 'app-director-view',
-  templateUrl: './director-view.component.html',
-  styleUrls: ['./director-view.component.scss']
+  selector: 'app-movie-summary',
+  templateUrl: './movie-summary.component.html',
+  styleUrls: ['./movie-summary.component.scss']
 })
-export class DirectorViewComponent implements OnInit {
+export class MovieSummaryComponent implements OnInit {
 
   isExtraSmall: Observable<BreakpointState> = this.breakpointObserver.observe(Breakpoints.XSmall);
 
   smallDialogSubscription:any = '';
 
   constructor(
-    public dialogRef: MatDialogRef<DirectorViewComponent>,
+    public dialogRef: MatDialogRef<MovieSummaryComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
     private breakpointObserver: BreakpointObserver
   ) { }
 
   ngOnInit(): void {
-    this.data.birthdate = this.refineDate(this.data.birthdate);
+    //console.log(this.data);
+    this.data.release = this.refineDate(this.data.release);
     this.smallDialogSubscription = this.isExtraSmall.subscribe(result => {
       if(result.matches){
         this.dialogRef.updateSize('100%');
@@ -36,8 +37,8 @@ export class DirectorViewComponent implements OnInit {
   close(): void{
     this.dialogRef.close();
     this.dialogRef.afterClosed().subscribe(result => {
-      this.smallDialogSubscription.unsubscribe();
-  });
+        this.smallDialogSubscription.unsubscribe();
+    });
   }
 
   refineDate(longDate: any){
@@ -58,11 +59,11 @@ export class DirectorViewComponent implements OnInit {
     }else{
       formatDt = dt.toString();
     }
-
+    
     finalDate = formatDt.concat(monthNames[month]);
     finalDate = finalDate.concat(year.toString());
     //console.log(finalDate);
     return finalDate;
-  }      
+  }   
 
 }
