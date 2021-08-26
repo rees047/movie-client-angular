@@ -3,17 +3,29 @@
     align-items: center;
     justify-content: center;
     height: 100%;
+    background: rgb(238,174,202);
+    background: linear-gradient(90deg, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
 }
 
 .box {
     width: auto;
-    /*border: 1px solid blue;*/
     text-align: center;
+    background-color: #ffffff;
+    padding: 6%;
+    border-radius: 50%;
+    border: 12px outset #DBE9F4;
+    /*background: url("../../assets/cinema-pink.png");*/
+    background-repeat: repeat;
+    background-size: 110px;
 }
 
 .flex-item {
-    /*background-color: tomato;*/
-    padding: 5px;    
+    /*background-color: tomato;*/ 
     margin: 10px;
     text-align: center;
+}
+
+.my-btn{
+    width: 40%;
+    padding: 5px;  
 }

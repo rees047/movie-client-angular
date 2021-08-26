@@ -1,5 +1,14 @@
 <!-- src/app/movie-card/movie-card.component.html -->
-<mat-toolbar class="logout-container">
+<mat-toolbar class="nav-toolbar-container">
+    <span class="welcome">Welcome</span>
+    <button
+        mat-button
+        color="primary"
+        (click) = "openUserProfileDialog(user)"
+    >
+        {{user}}
+    </button>
+    || 
     <button
         mat-button
         color="primary"
@@ -38,7 +47,13 @@
             >
                 Synopsis
             </button>
-            <mat-icon>favorite_border</mat-icon>
+            <button
+                mat-icon-button
+                color="primary"
+                (click) = "addFavoritesMovies(movie.title)"
+            >
+                <mat-icon>favorite_border</mat-icon>
+            </button>
         </mat-card-actions>
     </mat-card>     
 </div>

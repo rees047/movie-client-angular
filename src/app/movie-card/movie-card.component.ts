@@ -1,7 +1,7 @@
 import { Component, OnInit, ɵɵsetComponentScope } from '@angular/core';
 import { Title } from '@angular/platform-browser'; //this import is used for setting html title
 import { Router } from '@angular/router'; //this import is used for routing
-import { Observable } from 'rxjs';
+//import { Observable } from 'rxjs';
 
 //this import is used to display notifications back to the user
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -24,6 +24,8 @@ import { UserProfileComponent } from '../user-profile/user-profile.component';
 export class MovieCardComponent implements OnInit {
   
   movies: any [] = [];
+  user: any = '';
+
   constructor(
     private titleService: Title,
     public fetchApiData: FetchApiDataService,
@@ -38,6 +40,7 @@ export class MovieCardComponent implements OnInit {
     this.getMovies();
     this.setTitle();
     //console.log(this.shareData.getData());
+    this.getUserName();
   }
 
   //set html title 
@@ -64,7 +67,6 @@ export class MovieCardComponent implements OnInit {
       });
      
       //console.log(this.movies);
-      this.getUserName();
       return this.movies;
     },(error) => {
       //console.log(error);
@@ -73,12 +75,6 @@ export class MovieCardComponent implements OnInit {
         duration: 2500
       });
     }); 
-  }
-
-  getUserName(): Observable<any>{
-    const user:any = localStorage.getItem('user');
-    console.log(user);
-    return user;
   }
 
   openGenreDialog(myData:any): void{
@@ -101,7 +97,43 @@ export class MovieCardComponent implements OnInit {
     //console.log(myData);
     this.dialog.open(MovieSummaryComponent,{
       width: '50%',
+      height: '80%',
+      autoFocus: false,
       data: myData
     });    
   }
+
+  openUserProfileDialog(myData:any): void{
+     //console.log(myData);
+     this.dialog.open(UserProfileComponent,{
+      width: '50%',
+      height: '80%',
+      autoFocus: false,
+      data: myData
+    });
+  }
+
+  /* ---------------------------------------
+  -------------- USER ACTIONS --------------
+    some actions are placed here because of
+          how the UI is layed out
+  --------------------------------------- */
+  getUserName(): void{
+    this.user = localStorage.getItem('user');  
+    return this.user;
+  }
+
+  addFavoritesMovies(movieTitle:any) : void{
+    this.fetchApiData.addFavoriteMovie(this.user, movieTitle).subscribe((success: any) => {
+      console.log(success.user);
+      this.snackBar.open('Movie Added!', 'OK', {
+        duration: 2000
+      });     
+    },(error) => {
+      this.snackBar.open('Error Adding Movie', 'OK', {
+        duration: 2000
+      });
+    }); 
+  }
+
 }

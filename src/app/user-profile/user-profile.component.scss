@@ -1,0 +1,53 @@
+ ::ng-deep #director-view .mat-card-header-text{
+    margin-left: 0 !important;
+}
+
+::ng-deep .mat-dialog-container{
+    background: rgb(238,174,202);
+    background: linear-gradient(90deg, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+}
+
+.text-right{
+    text-align: right;
+}
+
+.text-center{
+    text-align: center;
+}
+
+.span-item-layout{
+    width: 50%;
+    display: inline-block;
+    padding: 0.5em;
+    line-height: 1.5;
+    box-sizing: border-box;
+}
+
+.label{
+    text-align: right;
+    font-weight: 450;
+    background-color: rgba(238,174,202,0.5);
+}
+
+.description{
+    text-align: justify;
+    background-color: rgba(148,187,233,0.5);
+}
+
+.favorite-movies-container .label{
+    text-align: left;
+    padding: 0.5em;
+    margin-top: .5em;
+}
+
+.favorite-movies-container p{
+    margin-bottom: 0
+}
+
+.favorite-movies-container ul{
+    margin-top: 0
+}
+
+.favorite-movies-container ul li{
+    list-style-type: none;
+}

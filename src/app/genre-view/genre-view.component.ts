@@ -29,6 +29,8 @@ export class GenreViewComponent implements OnInit {
     this.smallDialogSubscription = this.isExtraSmall.subscribe(result => {
       if(result.matches){
         this.dialogRef.updateSize('100%');
+      }else{
+        this.dialogRef.updateSize('50%');
       }
     });
   }

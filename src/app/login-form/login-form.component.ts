@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Observable } from 'rxjs';
 
 //you'll use this import to close the dialog on success
 import { MatDialogRef } from '@angular/material/dialog';
@@ -14,6 +15,9 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 //this import is used for routing
 import { Router } from '@angular/router';
 
+//for layout designs
+import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/layout';
+
 @Component({
   selector: 'app-login-form',
   templateUrl: './login-form.component.html',
@@ -23,15 +27,27 @@ export class LoginFormComponent implements OnInit {
 
   @Input() userData = { username: '', password: ''};
 
+  isExtraSmall: Observable<BreakpointState> = this.breakpointObserver.observe(Breakpoints.XSmall);
+
+  smallDialogSubscription:any = '';
+
   constructor(
     public fetchApiData: FetchApiDataService,
     public dialogRef: MatDialogRef<LoginFormComponent>,
     public snackBar: MatSnackBar,
     public router: Router,
-    //private shareData: ShareDataService
+    //private shareData: ShareDataService,
+    private breakpointObserver: BreakpointObserver
   ) { }
 
   ngOnInit(): void {
+    this.smallDialogSubscription = this.isExtraSmall.subscribe(result => {
+      if(result.matches){
+        this.dialogRef.updateSize('100%');
+      }else{
+        this.dialogRef.updateSize('25%');
+      }
+    });
   }
 
   loginUser(): void{
@@ -48,6 +64,9 @@ export class LoginFormComponent implements OnInit {
       localStorage.setItem('uid', uid);
 
       this.dialogRef.close(); //this will close the modal on success!
+      this.dialogRef.afterClosed().subscribe(result => {
+        this.smallDialogSubscription.unsubscribe();
+      });
       /*this.snackBar.open(`Welcome ${username}`, 'OK', {
         duration: 2000
       });*/

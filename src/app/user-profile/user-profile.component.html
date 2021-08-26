@@ -1,1 +1,97 @@
-<p>user-profile works!</p>
+<!--<p>user-profile works!</p>-->
+<div id="user-view">
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>Hello {{userData.username}}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <div class="row text-center">
+                <form>
+                    <div class="span-item-layout">
+                        <mat-form-field appearance="fill">
+                            <mat-label>First Name</mat-label>
+                            <input
+                                matInput
+                                [(ngModel)]="userData.firstname"
+                                type="text"
+                                name="firstname"
+                                required
+                            >
+                        </mat-form-field>
+                    </div>
+                    <div class="span-item-layout">
+                        <mat-form-field appearance="fill">
+                            <mat-label>Last Name</mat-label>
+                            <input
+                                matInput
+                                [(ngModel)]="userData.lastname"
+                                type="text"
+                                name="lastname"
+                                required
+                            >
+                        </mat-form-field>
+                    </div>
+                </form>
+            </div>
+            <div class="row text-center">
+                <div class="span-item-layout">
+                    <button
+                        mat-stroked-button
+                        color="primary"
+                        (click)="updateUserProfile()"
+                    >
+                        Update Profile
+                    </button>
+                </div>
+                <div class="span-item-layout">
+                    <button
+                        mat-stroked-button
+                        color="accent"
+                        (click)="deleteUserProfile()"
+                    >
+                        Delete Profile
+                    </button>
+                </div>
+            </div>
+            <div class="row">
+                <span class="span-item-layout label">Email: </span>
+                <span class="span-item-layout description">{{userData.email}}</span>
+            </div>
+            <div class="row">
+                <span class="span-item-layout label">Birthdate: </span>
+                <span class="span-item-layout description">{{userData.birthdate}}</span>
+            </div>
+            <div class="row favorite-movies-container">
+                <p class="label">Favorite Movies: </p>
+                <ul class="description">
+                    <li *ngIf="userData.favoredMovies.length == 0; else elseBlock">
+                        <span class="span-item-layout">No Favorite Movies</span>
+                    </li>
+                    <ng-template #elseBlock>
+                        <li *ngFor = "let cast of userData.favoredMovies; let i = index">
+                            <span class="span-item-layout">{{userData.favoredMovies[i]}}</span>
+                            <div class="span-item-layout text-right">
+                                <button
+                                    mat-icon-button
+                                    color="primary"
+                                    (click)="deleteMovie(userData.favoredMovies[i])"
+                            >
+                                    <mat-icon>delete_outline</mat-icon>
+                                </button>
+                            </div>
+                        </li>
+                    </ng-template>
+                </ul>
+            </div>
+        </mat-card-content>
+        <mat-card-actions>
+            <button
+                mat-raised-button
+                color="primary"
+                (click) = "close()"
+            >
+                Close
+            </button>
+        </mat-card-actions>
+    </mat-card>
+</div>

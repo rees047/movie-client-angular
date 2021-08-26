@@ -29,6 +29,8 @@ export class DirectorViewComponent implements OnInit {
     this.smallDialogSubscription = this.isExtraSmall.subscribe(result => {
       if(result.matches){
         this.dialogRef.updateSize('100%');
+      }else{
+        this.dialogRef.updateSize('50%');
       }
     });
   }
@@ -37,7 +39,7 @@ export class DirectorViewComponent implements OnInit {
     this.dialogRef.close();
     this.dialogRef.afterClosed().subscribe(result => {
       this.smallDialogSubscription.unsubscribe();
-  });
+    });
   }
 
   refineDate(longDate: any){
@@ -58,11 +60,11 @@ export class DirectorViewComponent implements OnInit {
     }else{
       formatDt = dt.toString();
     }
-
+    
     finalDate = formatDt.concat(monthNames[month]);
     finalDate = finalDate.concat(year.toString());
     //console.log(finalDate);
     return finalDate;
-  }      
+  }   
 
 }
