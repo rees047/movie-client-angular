@@ -23,7 +23,8 @@ export class RegisterFormComponent implements OnInit {
 
   @Input() userData = { username: '', password: '', firstname: '', lastname: '', email: '', birthdate: ''};
 
-  isExtraSmall: Observable<BreakpointState> = this.breakpointObserver.observe(Breakpoints.XSmall);
+  //isExtraSmall: Observable<BreakpointState> = this.breakpointObserver.observe(Breakpoints.XSmall);
+  isExtraSmall: Observable<BreakpointState> = this.breakpointObserver.observe('(max-width: 960px)');
 
   smallDialogSubscription:any = '';
 

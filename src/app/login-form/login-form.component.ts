@@ -27,7 +27,8 @@ export class LoginFormComponent implements OnInit {
 
   @Input() userData = { username: '', password: ''};
 
-  isExtraSmall: Observable<BreakpointState> = this.breakpointObserver.observe(Breakpoints.XSmall);
+  //isExtraSmall: Observable<BreakpointState> = this.breakpointObserver.observe(Breakpoints.XSmall);
+  isExtraSmall: Observable<BreakpointState> = this.breakpointObserver.observe('(max-width: 960px)');
 
   smallDialogSubscription:any = '';
 

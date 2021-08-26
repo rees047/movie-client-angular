@@ -14,15 +14,22 @@
     padding: 6%;
     border-radius: 50%;
     border: 12px outset #DBE9F4;
-    /*background: url("../../assets/cinema-pink.png");*/
+    background: url("../../assets/cinema-pink.jpg");
     background-repeat: repeat;
-    background-size: 110px;
+    background-size: 30%;
 }
 
 .flex-item {
     /*background-color: tomato;*/ 
     margin: 10px;
     text-align: center;
+}
+
+.welcome-text{
+    background-color: #ffffff;
+    padding: 0.5em;
+    border: 1px solid white;
+    border-radius: 10px;
 }
 
 .my-btn{
