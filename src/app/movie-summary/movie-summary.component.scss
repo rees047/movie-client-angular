@@ -1,0 +1,60 @@
+::ng-deep #movie-summary .mat-card-header-text{
+    margin-left: 0 !important;
+}
+
+::ng-deep .mat-dialog-container{
+    background: rgb(238,174,202);
+    background: linear-gradient(90deg, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+}
+
+.col{
+    float: left
+}
+
+.col-40{
+    width: 40%;
+}
+
+.col-60{
+    width: 60%;
+}
+
+.clear-fix{
+    clear: both;
+}
+
+.poster-image{
+    width: 100%;
+}
+
+.item-container{
+    margin: 0.5em;
+}
+
+.item-label{
+    width: 100%;
+    display: inline-block;
+    font-weight: 500;
+    background-color: rgba(238,174,202,0.5);
+}
+
+.item-description{
+    background-color: rgba(148,187,233,0.5);
+    line-height: 1.75;
+    padding: 2px 20px 2px 40px;
+    text-align: justify;
+}
+
+.item-container ul{
+    margin-top: 0
+}
+
+.item-container ul li{
+    list-style-type: none;
+}
+
+@media only screen and (max-width: 640px) {
+    .col-30, .col-70{
+        width: 100%;
+    }
+}

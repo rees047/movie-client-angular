@@ -1,0 +1,57 @@
+<!--<p>movie-summary works!</p>-->
+<div id="movie-summary">
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>{{data.title}}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <div class="row">
+                <div class="col col-40">
+                    <img src={{data.imagePath}} alt={{data.title}} class="poster-image">
+                </div>
+                <div class="col col-60">
+                    <div class="item-container">
+                        <span class="item-label">Rating: </span>
+                        <p class="item-description">{{data.rating.name}}</p>
+                    </div>
+                    <div class="item-container">
+                        <span class="item-label">Release: </span>
+                        <p class="item-description">{{data.release}}</p>
+                    </div>
+                    <div class="item-container">
+                        <span class="item-label">Runtime: </span>
+                        <p class="item-description">{{data.runtime}}</p>
+                    </div>
+                    <div class="item-container">
+                        <span class="item-label">Summary: </span><br/>
+                        <p class="item-description">{{data.description}}</p>
+                    </div>            
+                    <div class="item-container">
+                        <span class="item-label">Cast: </span>
+                        <ul class="item-description">
+                            <li *ngFor = "let cast of data.cast; let i = index">{{data.cast[i]}}</li>
+                        </ul>
+                    </div>
+                    <div class="item-container">
+                        <span class="item-label">Budget: </span>
+                        <p class="item-description">{{data.budget}}</p>
+                    </div>
+                    <div class="item-container">
+                        <span class="item-label">Gross Profit: </span>
+                        <p class="item-description">{{data.gross}}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="clear-fix"></div>
+        </mat-card-content>
+        <mat-card-actions>
+            <button
+                mat-raised-button
+                (click) = "close()"
+                color="primary"
+            >
+                Close
+            </button>
+        </mat-card-actions>
+    </mat-card>
+</div>

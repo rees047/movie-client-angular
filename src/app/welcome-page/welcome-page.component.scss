@@ -1,0 +1,38 @@
+.flex-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    background: rgb(238,174,202);
+    background: linear-gradient(90deg, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+}
+
+.box {
+    width: auto;
+    text-align: center;
+    background-color: #ffffff;
+    padding: 6%;
+    border-radius: 50%;
+    border: 12px outset #DBE9F4;
+    background: url("../../assets/cinema-pink.jpg");
+    background-repeat: repeat;
+    background-size: 30%;
+}
+
+.flex-item {
+    /*background-color: tomato;*/ 
+    margin: 10px;
+    text-align: center;
+}
+
+.welcome-text{
+    background-color: #ffffff;
+    padding: 0.5em;
+    border: 1px solid white;
+    border-radius: 10px;
+}
+
+.my-btn{
+    width: 40%;
+    padding: 5px;  
+}
