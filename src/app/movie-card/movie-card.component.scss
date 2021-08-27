@@ -9,21 +9,34 @@
     font-size: 14px;
     margin-left: 12px;
     margin-right: 2px;
+    justify-content: center;
+}
+
+#main-container{
+    flex: 1;
 }
 
 .flex-container{
     display: flex;
     align-items: center;
-    height: 100%;
-    width: 100%;
+    justify-content: center;   
     background: rgb(238,174,202);
     background: linear-gradient(90deg, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
-    overflow: auto;
+    height: 100%;
+    width: 100%;
+    flex-flow: wrap;
 }
 
 .flex-item {
-    flex: 1 1 auto;
-    margin: auto 10px;
+    border: 1px solid #eeeeee;
+    margin: 10px;
+    min-height: 0;
+    flex-basis: 20%;
+    flex-grow: 0;
+}
+
+.text-center{
+    text-align: center;
 }
 
 .poster-image{
