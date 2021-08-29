@@ -23,10 +23,20 @@ import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/l
   templateUrl: './login-form.component.html',
   styleUrls: ['./login-form.component.scss']
 })
+
+/**
+ * Component for User Login
+ * data binding for user information is done through @input userData
+ * and binded in HTML through ngModel
+ */
 export class LoginFormComponent implements OnInit {
 
   @Input() userData = { username: '', password: ''};
 
+  /*
+  * Changes size for mobile view
+  * uses Observable and Breakpoint Observer to determine appropriate sizing
+  */
   //isExtraSmall: Observable<BreakpointState> = this.breakpointObserver.observe(Breakpoints.XSmall);
   isExtraSmall: Observable<BreakpointState> = this.breakpointObserver.observe('(max-width: 960px)');
 

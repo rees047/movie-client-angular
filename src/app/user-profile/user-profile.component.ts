@@ -18,8 +18,19 @@ import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/l
   templateUrl: './user-profile.component.html',
   styleUrls: ['./user-profile.component.scss']
 })
+
+/**
+ * Component for Displaying and Manipulating User Data
+ * accepts data FROM movie-card/movie-component through MAT_DIALOG_DATA
+ * @Inject(MAT_DIALOG_DATA) public data: any
+ * userData:any = {}; holds data results so it can be accessed anywhere within the class
+ */
 export class UserProfileComponent implements OnInit {
 
+  /*
+  * Changes size for mobile view
+  * uses Observable and Breakpoint Observer to determine appropriate sizing
+  */
   isExtraSmall: Observable<BreakpointState> = this.breakpointObserver.observe(Breakpoints.XSmall);
 
   smallDialogSubscription:any = '';

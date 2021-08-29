@@ -12,8 +12,18 @@ import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/l
   templateUrl: './movie-summary.component.html',
   styleUrls: ['./movie-summary.component.scss']
 })
+
+/**
+ * Component for Displaying and Manipulating Individual Movie Data
+ * accepts data FROM movie-card/movie-component through MAT_DIALOG_DATA
+ * @Inject(MAT_DIALOG_DATA) public data: any
+ */
 export class MovieSummaryComponent implements OnInit {
 
+  /*
+  * Changes size for mobile view
+  * uses Observable and Breakpoint Observer to determine appropriate sizing
+  */
   isExtraSmall: Observable<BreakpointState> = this.breakpointObserver.observe(Breakpoints.XSmall);
 
   smallDialogSubscription:any = '';

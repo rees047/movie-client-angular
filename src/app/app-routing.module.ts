@@ -7,4 +7,9 @@ const routes: Routes = [];
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
+
+/**
+ * Implement the Routing Module and paths
+ * Paths were declared on app.module.ts
+ */
 export class AppRoutingModule { }

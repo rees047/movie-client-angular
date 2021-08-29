@@ -21,6 +21,13 @@ import { UserProfileComponent } from '../user-profile/user-profile.component';
   templateUrl: './movie-card.component.html',
   styleUrls: ['./movie-card.component.scss']
 })
+
+/**
+ * Component for Displaying and Manipulating Movie Data
+ * Users MatDialog to call Genre View, Director View, Movie Summary and User Profile
+ * movies: any []; holds the movie data results so it can be accessed anywhere within the class
+ * user: any = ''; holds the username so it can be accesses anywhere within the class
+ */
 export class MovieCardComponent implements OnInit {
   
   movies: any [] = [];

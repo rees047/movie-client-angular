@@ -9,6 +9,11 @@ import { RegisterFormComponent } from '../register-form/register-form.component'
   templateUrl: './welcome-page.component.html',
   styleUrls: ['./welcome-page.component.scss']
 })
+
+/**
+ * Default View of the Angular Client API
+ * uses matDialog to open the register and login buttons
+ */
 export class WelcomePageComponent implements OnInit {
 
   constructor(public dialog: MatDialog){}
