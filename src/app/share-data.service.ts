@@ -4,6 +4,12 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
+
+/**
+ * Test Service
+ * This is made to share data between sibling components
+ * Not implemented in this project but kept for lesson purposes
+ */
 export class ShareDataService {
 
   private data: any = '';

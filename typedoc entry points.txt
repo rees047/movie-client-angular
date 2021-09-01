@@ -1,0 +1,20 @@
+files are found in src/app
+
+app.component.ts
+app.module.ts
+app-routing.module.ts
+fetch-api-data.service.ts
+share-data.service.ts
+director-view/director-view.component.ts
+genre-view/genre-view.component.ts
+login-form/login-form.component.ts
+movie-card/movie-card.component.ts
+movie-summary/movie-summary.component.ts
+register-form/register-form.component.ts
+user-profile/user-profile.component.ts
+welcome-page/welcome-page.component.ts
+
+
+typedoc command:
+
+typedoc app.component.ts app.module.ts app-routing.module.ts fetch-api-data.service.ts share-data.service.ts director-view/director-view.component.ts genre-view/genre-view.component.ts login-form/login-form.component.ts movie-card/movie-card.component.ts movie-summary/movie-summary.component.ts register-form/register-form.component.ts user-profile/user-profile.component.ts welcome-page/welcome-page.component.ts

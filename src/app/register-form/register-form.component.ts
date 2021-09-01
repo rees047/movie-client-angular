@@ -19,10 +19,19 @@ import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/l
   styleUrls: ['./register-form.component.scss']
 })
 
+/**
+ * Component for User Registration
+ * data-bindidng is done through @input userData
+ * and binded in HTML through ngModel
+ */
 export class RegisterFormComponent implements OnInit {
 
   @Input() userData = { username: '', password: '', firstname: '', lastname: '', email: '', birthdate: ''};
 
+   /*
+  * Changes size for mobile view
+  * uses Observable and Breakpoint Observer to determine appropriate sizing
+  */
   //isExtraSmall: Observable<BreakpointState> = this.breakpointObserver.observe(Breakpoints.XSmall);
   isExtraSmall: Observable<BreakpointState> = this.breakpointObserver.observe('(max-width: 960px)');
 

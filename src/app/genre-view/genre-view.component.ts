@@ -12,8 +12,18 @@ import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/l
   templateUrl: './genre-view.component.html',
   styleUrls: ['./genre-view.component.scss']
 })
+
+/**
+ * Component for Displaying and Manipulating Genre Data
+ * accepts data FROM movie-card/movie-component through MAT_DIALOG_DATA
+ * @Inject(MAT_DIALOG_DATA) public data: any
+ */
 export class GenreViewComponent implements OnInit {
 
+  /*
+  * Changes size for mobile view
+  * uses Observable and Breakpoint Observer to determine appropriate sizing
+  */
   isExtraSmall: Observable<BreakpointState> = this.breakpointObserver.observe(Breakpoints.XSmall);
 
   smallDialogSubscription:any = '';
@@ -37,6 +47,7 @@ export class GenreViewComponent implements OnInit {
 
   close(): void{
     this.dialogRef.close();
+    //unsubsribe to avoid memory leak
     this.dialogRef.afterClosed().subscribe(result => {
         this.smallDialogSubscription.unsubscribe();
     });
